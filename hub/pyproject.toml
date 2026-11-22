@@ -1,6 +1,6 @@
 [project]
 name = "ai-agent-hub"
-version = "0.9.14"
+version = "0.9.15"
 description = "Intranet hub where local coding agents register and delegate tasks to each other"
 requires-python = ">=3.11"
 dependencies = [

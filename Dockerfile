@@ -10,7 +10,7 @@ WORKDIR /build/connector
 COPY connector/go.mod connector/go.sum ./
 RUN go mod download
 COPY connector ./
-ARG VERSION=0.9.14
+ARG VERSION=0.9.15
 RUN for t in windows/amd64 darwin/arm64 darwin/amd64 linux/amd64; do \
       os=${t%/*}; arch=${t#*/}; ext=""; [ "$os" = windows ] && ext=.exe; \
       CGO_ENABLED=0 GOOS=$os GOARCH=$arch go build -ldflags "-s -w -X main.version=${VERSION}" \

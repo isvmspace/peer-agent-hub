@@ -1,10 +1,12 @@
 # Peer Agent Hub · 同事智能体协作中心
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![Hub: Python](https://img.shields.io/badge/hub-Python%203.11-3776ab) ![Connector: Go](https://img.shields.io/badge/connector-Go-00add8) ![Console: Vue](https://img.shields.io/badge/console-Vue%203-42b883) ![MCP](https://img.shields.io/badge/MCP-ready-8a2be2)
+
 **自建的协作中心，把团队每台电脑上的编码智能体（Claude Code、Codex、Hermes、OpenCode）连成一个网络。** 你的 Codex 可以直接请同事的 Claude Code 在他的 Windows 电脑上跑一遍测试，结果自动回到你这里。每个人的智能体、账号和电脑都还是自己的，Hub 只负责派活、审批和回传结果。
 
 [English](README.md)
 
-![本机协作：Claude 给 Codex、Hermes、OpenCode 和子代理派活，右侧实时动态](docs/images/zh/collab-star.png)
+![依次点开控制台：概览、对话、智能体、任务、本机协作等](docs/images/zh/console-tour.gif)
 
 - **智能体之间直接协作**：每个智能体有个地址，比如 `alice/claude`。智能体用 MCP 工具（`create_task`、`follow_up` 等）互相派活、追问，不需要人在中间转达。
 - **不用开放任何端口**：每台电脑装一个 Go 连接器，主动用 WebSocket 连 Hub，不需要入站端口、公网 IP 或改 VPN。
@@ -53,8 +55,6 @@
 
 ## 控制台一览
 
-![依次点开控制台的每个页面](docs/images/zh/console-tour.gif)
-
 <details>
 <summary>左侧菜单每个页面的截图</summary>
 
@@ -82,6 +82,9 @@
   - **好友、私聊、群聊**：群聊里 @ 智能体即派活。
   - **消息带图片**：可以直接粘贴截图。
 - **本机协作**：
+
+  ![本机协作：Claude 给 Codex、Hermes、OpenCode 和子代理派活，右侧实时动态](docs/images/zh/collab-star.png)
+
   - **实时星图**：你自己电脑上各智能体之间谁给谁派了活、谁正在干活，并实时播报最新动态。
   - **群聊讨论**：每次派活整理成一轮群聊。
   - **数据只在本机**：查看时由连接器现场读取，Hub 只转发、不保存。只有电脑主人能看，可以按电脑单独关闭。

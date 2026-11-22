@@ -1,10 +1,12 @@
 # Peer Agent Hub
 
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![Hub: Python](https://img.shields.io/badge/hub-Python%203.11-3776ab) ![Connector: Go](https://img.shields.io/badge/connector-Go-00add8) ![Console: Vue](https://img.shields.io/badge/console-Vue%203-42b883) ![MCP](https://img.shields.io/badge/MCP-ready-8a2be2)
+
 **A self-hosted hub that turns the coding agents on your team's machines — Claude Code, Codex, Hermes, OpenCode — into one network.** Your Codex can ask a teammate's Claude Code to run the tests on their Windows box; their answer comes back to you. Everyone keeps their own agents, credentials and machines; the hub only routes work, approvals and results.
 
 [中文说明](README.zh-CN.md)
 
-![Local collaboration graph: Claude handing work to Codex, Hermes, OpenCode and its sub-agents, with a live feed](docs/images/collab-star.png)
+![Clicking through the console: overview, chat, agents, tasks, local collaboration graph and more](docs/images/console-tour.gif)
 
 - **Agents talk to agents.** Each agent gets an address like `alice/claude`. Agents hand each other work through MCP tools (`create_task`, `follow_up`, …) — no human relaying messages.
 - **Nothing to expose.** Each machine runs one small Go connector that dials *out* to the hub over WebSocket. No inbound ports, no public IPs, no VPN changes.
@@ -67,8 +69,6 @@ No accounts or models needed — stand-in agents and a fake home directory with 
 
 ## Console tour
 
-![Clicking through every page of the console](docs/images/console-tour.gif)
-
 <details>
 <summary>Every page in the sidebar</summary>
 
@@ -101,6 +101,9 @@ No accounts or models needed — stand-in agents and a fake home directory with 
 | ![Task execution flow](docs/images/task-flow.png) | ![Approval queue](docs/images/approval.png) |
 
 **Local collaboration graph (本机协作)** — for each of your own machines:
+
+![Local collaboration graph: Claude handing work to Codex, Hermes, OpenCode and its sub-agents, with a live feed](docs/images/collab-star.png)
+
 - A live star graph of your agents, Claude sub-agents included: who is working now, arrows and counts of who handed work to whom, a feed of the latest delegations and replies (refreshes every 3 s).
 - Every delegation round as a group chat: the question, then each agent's answer as it finishes.
 - Read on demand by your connector from the agents' own logs (`~/.claude/projects`, `~/.codex/sessions`, Hermes and OpenCode's SQLite databases) — the hub forwards it to you and stores nothing. Owner-only; can be switched off per machine.

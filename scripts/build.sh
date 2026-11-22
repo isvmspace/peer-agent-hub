@@ -2,7 +2,7 @@
 # Local build without Docker: console -> hub/src/agent_hub/web, connectors -> dist/downloads, wheel -> dist/
 set -euo pipefail
 cd "$(dirname "$0")/.."
-VERSION=${VERSION:-0.9.14}
+VERSION=${VERSION:-0.9.15}
 (cd frontend && npm ci --no-audit --no-fund && npm run build)
 mkdir -p dist/downloads
 (cd connector && for t in windows/amd64 darwin/arm64 darwin/amd64 linux/amd64; do
