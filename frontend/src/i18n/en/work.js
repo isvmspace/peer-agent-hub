@@ -243,4 +243,5 @@ export default {
   '改分支': 'Change branch',
   '移除': 'Remove',
   '改名只改显示，不移动文件。在对话里让智能体切到别的分支，这里会自动跟着变；也可以在这里直接改。新会话从当前分支开始，已有会话不受影响。': 'Renaming changes only the display name; no files move. If you ask the agent to switch branches in a conversation, this updates automatically, or you can change it here. New sessions start from the current branch; existing sessions are unaffected.',
+  '部署手册': 'Setup guide',
 }

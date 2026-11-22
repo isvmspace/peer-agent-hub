@@ -137,6 +137,12 @@ def test_onboarding_doc_is_public_and_filled_in(client):
     assert "{{HUB}}" not in r.text and "http://testserver/mcp/" in r.text and "NO_PROXY" in r.text
 
 
+def test_work_server_doc_is_public_and_filled_in(client):
+    r = client.get("/docs/work-servers.md")
+    assert r.status_code == 200 and r.headers["content-type"].startswith("text/markdown")
+    assert "{{HUB}}" not in r.text and "http://testserver/docs/onboarding.md" in r.text and "workhost enable" in r.text
+
+
 def test_admin_sees_every_host_with_addresses(client):
     admin, _ = register(client, "admin")
     bob, _ = register(client, "bob")

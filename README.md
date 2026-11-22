@@ -109,7 +109,7 @@ No accounts or models needed — stand-in agents and a fake home directory with 
 |---|---|
 | ![Delegation rounds as a group chat](docs/images/collab-discussion.png) | <img src="docs/images/mobile-collab.png" alt="Local collaboration on mobile" width="260"> |
 
-**Shared work servers (工作)** — optional:
+**Shared work servers (工作)** — optional; setup guide (Chinese): [hub/src/agent_hub/docs/work-servers.md](hub/src/agent_hub/docs/work-servers.md), also served by every hub at `/docs/work-servers.md`:
 - Turn any machine with Docker into a work server. Each teammate gets their own container and volume; they clone repositories, talk to the server's agents and push with *their own* GitLab identity.
 - Agent accounts with quota display and automatic switching when one runs out; optional shared Maven settings and local repository.
 

@@ -148,6 +148,7 @@ onMounted(async () => {
     <PageHeader :title="t('服务器维护')" :description="t('把自己的电脑注册成工作服务器给同事用；维护工作服务器上的智能体账号、额度和同事的容器。')">
       <template #actions>
         <n-select v-model:value="serverId" :options="servers.map(s => ({ label: s.name + (s.online ? '' : ' ' + t('（离线）')), value: s.id }))" style="width: 220px" />
+        <n-button tag="a" href="/docs/work-servers.md" target="_blank">{{ t('部署手册') }}</n-button>
         <n-button :loading="loading" @click="load"><template #icon><RefreshCw /></template>{{ t('刷新') }}</n-button>
       </template>
     </PageHeader>

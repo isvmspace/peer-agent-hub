@@ -1143,10 +1143,11 @@ def create_app(settings: Settings | None = None, db: Database | None = None) -> 
     async def healthz(request: Request):
         return ok({"status": "ok", "version": __version__, "connectors_online": len(hub.connections)})
 
-    async def onboarding_doc(request: Request):
-        """Public setup guide, written for people and for the agents they hand the link to."""
+    async def public_doc(request: Request):
+        """Public guides (connecting a machine, running a work server), written for people and for the agents they hand the link to."""
         hub_url = base_url(request)
-        text = (Path(__file__).parent / "docs" / "onboarding.md").read_text(encoding="utf-8")
+        name = request.url.path.rsplit("/", 1)[-1]
+        text = (Path(__file__).parent / "docs" / name).read_text(encoding="utf-8")
         text = text.replace("{{HUB}}", hub_url).replace("{{HOST}}", urlsplit(hub_url).hostname or "")
         return Response(text, media_type="text/markdown; charset=utf-8")
 
@@ -1262,7 +1263,8 @@ def create_app(settings: Settings | None = None, db: Database | None = None) -> 
         Route("/favicon.ico", lambda r: RedirectResponse("/console/favicon.ico", status_code=301)),
     ]
     routes.append(Route("/downloads/latest/{platform}", download_latest))
-    routes.append(Route("/docs/onboarding.md", onboarding_doc))
+    routes.append(Route("/docs/onboarding.md", public_doc))
+    routes.append(Route("/docs/work-servers.md", public_doc))
     routes.append(Route("/artifacts", artifacts))
     if (WEB_DIR / "assets").exists():
         routes.append(Mount("/console/assets", app=StaticFiles(directory=WEB_DIR / "assets")))
