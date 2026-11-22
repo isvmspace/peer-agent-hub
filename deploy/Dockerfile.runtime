@@ -1,0 +1,18 @@
+# Runtime-only image for hosts without internet: everything is prebuilt by
+# scripts/package-offline.sh (wheelhouse + connector binaries).
+ARG BASE=python:3.11-slim
+FROM ${BASE}
+WORKDIR /app
+ENV PYTHONUNBUFFERED=1 \
+    AGENT_HUB_DATA_DIR=/data \
+    AGENT_HUB_DOWNLOAD_DIR=/app/downloads
+COPY wheels /tmp/wheels
+RUN pip install --no-cache-dir --no-index --find-links /tmp/wheels ai-agent-hub && rm -rf /tmp/wheels \
+    && useradd --create-home --uid 10001 hub && mkdir -p /data && chown hub /data
+COPY downloads /app/downloads
+USER hub
+VOLUME ["/data"]
+EXPOSE 8790
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8790/healthz', timeout=3)"
+CMD ["agent-hub", "--host", "0.0.0.0", "--port", "8790"]

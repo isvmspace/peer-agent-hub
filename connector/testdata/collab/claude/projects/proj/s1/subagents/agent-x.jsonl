@@ -1,0 +1,2 @@
+{"type":"user","isSidechain":true,"agentId":"x","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:08.000Z","entrypoint":"cli","message":{"role":"user","content":"再看一遍"}}
+{"type":"assistant","isSidechain":true,"agentId":"x","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:20.000Z","message":{"role":"assistant","content":[{"type":"text","text":"看完了"}]}}

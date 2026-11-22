@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+"""A stand-in for `codex exec --json`: no model, just believable events (demo and screenshots)."""
+import json, sys, time, uuid
+if "--version" in sys.argv:
+    print("codex-cli 0.170.0"); sys.exit(0)
+prompt = sys.stdin.read() if not sys.stdin.isatty() else ""
+def out(ev): print(json.dumps(ev), flush=True)
+out({"type": "thread.started", "thread_id": str(uuid.uuid4())})
+for i, (cmd, output) in enumerate([("git diff main...pr-42 --stat", " src/payments/retry.ts | 38 ++++++----"),
+                                   ("rg -n idempotencyKey src/payments", "src/payments/retry.ts:21: const idempotencyKey = intent.id"),
+                                   ("npm test -- retry", "retry.test.ts  ✓ 12 passed")]):
+    time.sleep(1.5)
+    out({"type": "item.started", "item": {"id": f"c{i}", "type": "command_execution", "command": cmd}})
+    time.sleep(0.8)
+    out({"type": "item.completed", "item": {"id": f"c{i}", "type": "command_execution", "command": cmd, "aggregated_output": output, "exit_code": 0, "status": "completed"}})
+text = ("PR #42 fixes the double charge: the idempotency key is created once per payment intent and sent on every retry; "
+        "`409 duplicate` is treated as success. All 12 retry tests pass. One nit: log the key at debug level only.")
+out({"type": "item.completed", "item": {"id": "m1", "type": "agent_message", "text": text}})
+out({"type": "turn.completed", "usage": {"input_tokens": 9200, "cached_input_tokens": 30100, "output_tokens": 640}})

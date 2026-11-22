@@ -1,0 +1,8 @@
+{"type":"ai-title","aiTitle":"评审方案","sessionId":"s1"}
+{"type":"user","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:00.000Z","entrypoint":"cli","message":{"role":"user","content":"帮我让 codex 评审 password=abc123"}}
+{"type":"assistant","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:05.000Z","message":{"role":"assistant","content":[{"type":"tool_use","id":"toolu_b","name":"Bash","input":{"command":"codex exec -s read-only \"评审\"","description":"Run Codex review"}}]}}
+{"type":"user","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:06.000Z","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_b","content":"ok"}]}}
+{"type":"assistant","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:07.000Z","message":{"role":"assistant","content":[{"type":"tool_use","id":"toolu_task","name":"Task","input":{"description":"Sub review","prompt":"再看一遍"}}]}}
+{"type":"user","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:30.000Z","message":{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_task","content":"done"}]}}
+{"type":"assistant","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:00:31.000Z","message":{"role":"assistant","content":[{"type":"text","text":"评审完成"}]}}
+{"type":"user","sessionId":"s1","cwd":"/w","timestamp":"2026-11-18T15:01:00.000Z","isMeta":true,"message":{"role":"user","content":"<system-reminder>x</system-reminder>"}}

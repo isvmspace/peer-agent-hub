@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Hub 协作中心</title>
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // apply the saved theme before first paint (same rule as src/composables/useTheme.js)
+      (function () {
+        var c = 'system'
+        try { c = localStorage.getItem('agent-hub-theme') || 'system' } catch (e) {}
+        if (c !== 'light' && c !== 'dark') c = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = c
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

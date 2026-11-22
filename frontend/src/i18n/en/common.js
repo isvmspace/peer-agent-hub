@@ -1,0 +1,20 @@
+export default {
+  // status and isolation (utils/format.js)
+  '待审批': 'Awaiting approval',
+  '排队中': 'Queued',
+  '已下发': 'Dispatched',
+  '执行中': 'Running',
+  '已完成': 'Completed',
+  '失败': 'Failed',
+  '已取消': 'Canceled',
+  '已拒绝': 'Rejected',
+  '沙箱隔离': 'Sandboxed',
+  '受限': 'Limited',
+  '完全权限': 'Full access',
+  '只能写入任务所在的工作区（系统级沙箱）': 'Can only write inside the task\'s workspace (OS-level sandbox)',
+  '文件编辑限制在工作区内，命令行没有系统级沙箱': 'File edits stay inside the workspace; shell commands are not sandboxed',
+  '不做隔离，只有归属人本人和被特别允许的人可以派任务': 'No isolation: only the owner and people explicitly allowed can give it tasks',
+  '{s} 秒': '{s}s',
+  '{m} 分 {s} 秒': '{m}m {s}s',
+  '{h} 小时 {m} 分': '{h}h {m}m',
+}

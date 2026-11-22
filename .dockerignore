@@ -1,0 +1,7 @@
+.venv
+**/node_modules
+**/__pycache__
+hub/src/agent_hub/web
+connector/bin
+var
+dist

@@ -1,0 +1,16 @@
+# docker compose -f deploy/docker-compose.yml up -d --build   → http://localhost:8790/console/
+services:
+  agent-hub:
+    build: ..
+    image: agent-hub:local
+    container_name: agent-hub
+    restart: unless-stopped
+    ports:
+      - "8790:8790"
+    environment:
+      # The address people and connectors reach the hub at (used in download links and the onboarding guide).
+      AGENT_HUB_PUBLIC_URL: "http://localhost:8790"
+      # Set to "false" once everyone has registered. The first account to register is the administrator.
+      AGENT_HUB_ALLOW_REGISTER: "true"
+    volumes:
+      - ./data:/data

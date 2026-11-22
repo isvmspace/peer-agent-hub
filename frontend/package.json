@@ -1,0 +1,23 @@
+{
+  "name": "ai-agent-hub-console",
+  "private": true,
+  "version": "0.9.14",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/space-grotesk": "^5.3.0",
+    "@lucide/vue": "^1.26.0",
+    "markdown-it": "^14.3.3",
+    "naive-ui": "^2.44.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.5"
+  }
+}

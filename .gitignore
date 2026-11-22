@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+hub/src/agent_hub/web/
+var/
+dist/
+connector/bin/
+.DS_Store
+.qa/
+.claude/
+connector/connector
+frontend/dist/
+*.db
+.superpowers/
+.openidea

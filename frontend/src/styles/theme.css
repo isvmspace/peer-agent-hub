@@ -1,0 +1,97 @@
+/* Design tokens. Two signal colours: --signal (agents, online, primary actions)
+   and --flow (tasks moving between agents). Everything else is neutral. */
+:root {
+  --bg: #edf1f6;
+  --surface: #ffffff;
+  --surface-2: #f5f7fa;
+  --surface-3: #e9eef4;
+  --line: #d9e0ea;
+  --line-soft: #e6ebf1;
+  --ink: #0f1a2b;
+  --ink-2: #4a5870;
+  --ink-3: #5a667c;   /* readable secondary text: >= 4.5:1 on every light surface */
+  --ink-4: #8693a8;   /* decorative only: dots, placeholders, rules */
+  --signal: #0a6f8c;
+  --signal-hover: #08657f;
+  --signal-pressed: #065a72;
+  --on-signal: #ffffff;
+  --signal-strong: #065a72;
+  --signal-soft: #e1f3f8;
+  --signal-glow: rgba(10, 111, 140, .22);
+  --flow: #5b5bd6;
+  --flow-soft: #ececfd;
+  --ok: #087a4f;
+  --ok-soft: #e3f6ee;
+  --warn: #8a5a00;
+  --warn-soft: #fdf3dc;
+  --err: #c22f3c;
+  --err-soft: #fde8ea;
+  --bubble-me: #065a72;
+  --bubble-me-ink: #ffffff;
+  --code-bg: #0f1a2b;
+  --code-ink: #d6e2f2;
+  --grid-dot: rgba(15, 26, 43, .07);
+  --shadow: 0 1px 2px rgba(15, 26, 43, .04), 0 6px 20px rgba(15, 26, 43, .05);
+  --shadow-pop: 0 20px 60px rgba(15, 26, 43, .18);
+
+  --rail-width: 232px;
+  --header-height: 60px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 14px;
+  --font-sans: "Space Grotesk", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* legacy names still used by a few components */
+  --primary: var(--signal);
+  --primary-soft: var(--signal-soft);
+  --success: var(--ok);
+  --text-primary: var(--ink);
+  --text-secondary: var(--ink-2);
+  --text-tertiary: var(--ink-3);
+  --border: var(--line);
+  --border-light: var(--line-soft);
+  --bg-subtle: var(--surface-2);
+  --bg-container: var(--surface);
+
+  color-scheme: light;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--bg);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0d1424;
+  --surface: #121b2e;
+  --surface-2: #17223a;
+  --surface-3: #1d2a45;
+  --line: #24314d;
+  --line-soft: #1d2840;
+  --ink: #e3eaf5;
+  --ink-2: #9daac2;
+  --ink-3: #8c99b3;
+  --ink-4: #56627c;
+  --signal: #3ccfe6;
+  --signal-hover: #66dbed;
+  --signal-pressed: #25b4ca;
+  --on-signal: #06202a;
+  --signal-strong: #7ae3f2;
+  --signal-soft: rgba(60, 207, 230, .12);
+  --signal-glow: rgba(60, 207, 230, .35);
+  --flow: #8e8cff;
+  --flow-soft: rgba(142, 140, 255, .14);
+  --ok: #34d399;
+  --ok-soft: rgba(52, 211, 153, .12);
+  --warn: #f2b33d;
+  --warn-soft: rgba(242, 179, 61, .13);
+  --err: #ff6b7a;
+  --err-soft: rgba(255, 107, 122, .12);
+  --bubble-me: #0f5566;
+  --bubble-me-ink: #e9fbff;
+  --code-bg: #0a1020;
+  --code-ink: #c9d6ea;
+  --grid-dot: rgba(157, 170, 194, .09);
+  --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 8px 24px rgba(0, 0, 0, .25);
+  --shadow-pop: 0 24px 70px rgba(0, 0, 0, .55);
+  color-scheme: dark;
+}
